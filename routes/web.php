@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use LdapRecord\Models\ActiveDirectory\User;
 
 /** @var \Laravel\Lumen\Routing\Router $router */
@@ -16,8 +17,5 @@ use LdapRecord\Models\ActiveDirectory\User;
 */
 
 $router->get('/', function () use ($router) {
-
-    $users = User::where('cn', '=', 'julin')->get();
-    return $users;
-    // return $router->app->version();
+    return Controller::autenticarComLDAP("julin","jld@jldA1");
 });
